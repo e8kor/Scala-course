@@ -13,18 +13,6 @@ def compound(animal: HasLegs with HasHands) = {}
 compound(man)
 
 
-// Self type
-
-trait User {
-  def name: String = getClass.getSimpleName
-}
-
-trait Tweeter {
-  user: User =>
-
-  def tweet(msg: String) = println(s"$name: $msg")
-}
-
 //    trait Wrong extends Tweeter
 val user = new User with Tweeter
 

@@ -40,7 +40,7 @@ do i -= 1 while (i > 0)
 for (arg <- Array("hello", "Scala", "World"))
   println(arg)
 
-if (how.equals("Scala") || (how == "Java") && (how.eq(null)) || (how ne null)) println("bugaga")
+if (how.equals("Scala") || (how == "Java") && (how eq null) || (how ne null)) println("bugaga")
 
 val num = how match {
   case "Scala" => 1

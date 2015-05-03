@@ -1,8 +1,15 @@
 package org.scalatrain.basic.task
 
+import java.io.StringBufferInputStream
+
+import org.scalatrain.basic.oop.Config
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
+import scala.concurrent.duration.Duration
 import scala.language.dynamics
+import scala.util.Try
+import scala.util.parsing.combinator.RegexParsers
 
 object ParsersAndFutures {
   def main(args: Array[String]) {
