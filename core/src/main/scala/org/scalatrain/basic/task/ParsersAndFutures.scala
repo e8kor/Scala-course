@@ -1,20 +1,12 @@
 package org.scalatrain.basic.task
 
-import java.io.StringBufferInputStream
-
-import org.scalatrain.basic.OOP.Config
-import org.scalatrain.basic.Patterns.{Role, User}
-
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
-import scala.concurrent.duration.Duration
-import scala.util.parsing.combinator.RegexParsers
-import scala.util.{Try, Failure, Success}
 import scala.language.dynamics
 
 object ParsersAndFutures {
   def main(args: Array[String]) {
-//    futures()
+    //    futures()
     hack()
     parsers()
   }
@@ -32,14 +24,14 @@ object ParsersAndFutures {
     println(result)
 
     // You can define your own thread pool
-//    implicit val ec = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(10))
+    //    implicit val ec = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(10))
 
-//    val fs = for (i <- 1 to 300 reverse) yield Future(calc(i))
+    //    val fs = for (i <- 1 to 300 reverse) yield Future(calc(i))
     Thread.sleep(5000)
 
     println("==================")
 
-//    val f = Future.sequence(fs)
+    //    val f = Future.sequence(fs)
 
     /*f.onComplete {
       case Success(results) => println(results)
@@ -55,8 +47,12 @@ object ParsersAndFutures {
     }*/
 
     // Monad composition
-    val fu = Future {User(1, "Martin", "", 50, Role("Creator"))}
-    val fc = Future {new Config(Map("url" -> "jscala.org"))}
+    val fu = Future {
+      User(1, "Martin", "", 50, Role("Creator"))
+    }
+    val fc = Future {
+      new Config(Map("url" -> "jscala.org"))
+    }
     val timeout = Duration("1 min")
     val user = Await.result(fu, timeout)
     val conf = Await.result(fc, timeout)
@@ -97,8 +93,7 @@ object ParsersAndFutures {
     println(Await.result(ff, timeout))
 
 
-    type Closable =
-    {
+    type Closable = {
       def close(): Unit
     }
 
@@ -114,7 +109,6 @@ object ParsersAndFutures {
 
     withResource(new StringBufferInputStream("Hello"))(s => s.read())
     withResource(new Res)(println)
-
 
 
   }
@@ -147,7 +141,7 @@ object ParsersAndFutures {
 
     def op: Parser[String] = plus | minus
 
-    def numFull: Parser[Int] = regex("""\d+""".r).map(s => s.toInt)
+    def numFull: Parser[Int] = regex( """\d+""".r).map(s => s.toInt)
 
     def num: Parser[Int] = """\d+""".r ^^ (_.toInt)
 
@@ -165,7 +159,7 @@ object ParsersAndFutures {
 
     def term = jsNum | jsString
 
-    def strings: Parser[List[JsString]] = jsString*
+    def strings: Parser[List[JsString]] = jsString *
 
     def nums: Parser[Option[JsNum]] = jsNum.?
 
@@ -180,8 +174,8 @@ object ParsersAndFutures {
     val parser = new JsExprParser
     println(parser.parseExpr("1"))
     println(parser.parseExpr("\"string\""))
-    println(parser.parseExpr(""" 1 - 2 + 3"""))
-    println(parser.parseExpr(""" 1 - 2 + 3 + " is two" """))
+    println(parser.parseExpr( """ 1 - 2 + 3"""))
+    println(parser.parseExpr( """ 1 - 2 + 3 + " is two" """))
     println(parser.parseAll(parser.nums, "1"))
   }
 
@@ -193,7 +187,7 @@ object ParsersAndFutures {
       def js = JsNum(n)
     }
 
-//    println( 1.js + 2 - 1 + "3" )
+    //    println( 1.js + 2 - 1 + "3" )
     JsBinOp("+",
       JsBinOp("-",
         JsBinOp("+", JsNum(1), JsNum(2)),
