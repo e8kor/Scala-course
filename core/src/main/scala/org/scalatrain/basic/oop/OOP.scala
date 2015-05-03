@@ -32,3 +32,13 @@ class Cat extends Animal with FourLegged with Furry {
 class Config(c: Map[String, String]) {
   def get(n: String) = c(n)
 }
+
+trait User {
+  def name: String = getClass.getSimpleName
+}
+
+trait Tweeter {
+  user: User =>
+
+  def tweet(msg: String) = println(s"$name: $msg")
+}

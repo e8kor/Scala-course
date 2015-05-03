@@ -21,10 +21,13 @@ c.dropWhile(_ < 5).mkString
 (c.init.mkString, c.last)
 c.slice(1, 2).mkString
 c.count(_ > 2)
+
 c.foldLeft(0) { case (acc, i) => acc + i }
 (0 /: c) { case (acc, i) => acc + i }
 
 c.reduceLeft(_ + _) == c.sum //1, 2 => 3, 3 => 6
+
+
 
 c.min + c.max + c.sum + c.product
 

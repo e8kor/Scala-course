@@ -14,6 +14,7 @@ uberFunction(arg2 = 2, arg1 = "Hello") {
 }
 
 def IfElse(pred: Boolean)(cons: => Unit)(alt: => Unit) = if (pred) cons else alt
+
 IfElse(true) {
   println("In truth we trust")
 } {

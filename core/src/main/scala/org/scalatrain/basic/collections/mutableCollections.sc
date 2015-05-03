@@ -1,7 +1,8 @@
-import scala.collection.mutable.ArrayBuffer
+
+import scala.collection.mutable
 
 // Seq: IndexedSeq, LinearSeq, Array, ArrayBuffer, ListBuffer
-val ab = ArrayBuffer("a", "b", "c")
+val ab = mutable.ArrayBuffer("a", "b", "c")
 
 
 "a" +: ab :+ "z"
@@ -25,7 +26,7 @@ println(hs("green"))
 val m = mutable.HashMap((1, "one"), 2 -> "two")
 m.contains(1)
 m.getOrElseUpdate(3, hs.head)
-val m2 = ArrayBuffer(4 -> "four", 5 -> "five").toMap
+val m2 = mutable.ArrayBuffer(4 -> "four", 5 -> "five").toMap
 
 val m3 = m -- m2.keys
 

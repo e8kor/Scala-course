@@ -3,6 +3,11 @@ val ls = List(1, 2, 3)
 
 val ls1 = 1 :: 2 :: 3 :: Nil
 
+ls match {
+  case 1 :: 2 :: 3 :: Nil => true
+  case other => false
+}
+
 ls equals ls1
 
 val words = List("one", "two", "three")
