@@ -1,2 +1,6 @@
 # scala_train
-Scala training / source code / some specs / Ideas 
+Scala training  course
+
+Ideas/examples taken from https://github.com/nau/scala-train
+
+Thanks for motivation to Alexander Nemish
