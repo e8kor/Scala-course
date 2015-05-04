@@ -1,5 +1,5 @@
+import sbt.Keys._
 import sbt._
-import Keys._
 
 object ScalaTrainBuild extends Build {
   val macroVersion = "2.0.1"
@@ -9,7 +9,7 @@ object ScalaTrainBuild extends Build {
     version := "1.0",
     scalaVersion := "2.11.6",
     //testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports"),
-    scalacOptions     ++= Seq(
+    scalacOptions ++= Seq(
       "-encoding", "UTF-8",
       "-feature",
       "-language:implicitConversions", "-language:higherKinds", "-language:postfixOps"
@@ -28,19 +28,19 @@ object ScalaTrainBuild extends Build {
   )
 
   lazy val root: Project = Project(
-    "scala-train",
+    "scala-training",
     file("."),
-    settings = defaultSettings ++ Seq(
-      run <<= run in Compile in macros
-    )) aggregate(core, macros)
+    settings = defaultSettings
+    //settings = defaultSettings ++ Seq(run <<= run in Compile in macros)
+  ) aggregate (core /*, macros*/)
 
   lazy val core: Project = Project(
-    "scala-train-core",
+    "scala-training-core",
     file("core"),
     settings = defaultSettings
-  ) dependsOn(macros)
+  ) /*dependsOn (macros)*/
 
-  lazy val macros: Project = Project(
+  /* lazy val macros: Project = Project(
     "scala-train-macro",
     file("macro"),
     settings = defaultSettings ++ Seq(
@@ -56,5 +56,5 @@ object ScalaTrainBuild extends Build {
           Seq("org.scalamacros" %% "quasiquotes" % macroVersion)
       } getOrElse Nil
     )
-  )
+  )*/
 }
