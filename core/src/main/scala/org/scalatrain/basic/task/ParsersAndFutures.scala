@@ -2,13 +2,10 @@ package org.scalatrain.basic.task
 
 import java.io.StringBufferInputStream
 
-import org.scalatrain.basic.oop.Config
-
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
 import scala.concurrent.duration.Duration
 import scala.language.dynamics
-import scala.util.Try
 import scala.util.parsing.combinator.RegexParsers
 
 object ParsersAndFutures {
@@ -54,7 +51,7 @@ object ParsersAndFutures {
     }*/
 
     // Monad composition
-    val fu = Future {
+    /*val fu = Future {
       User(1, "Martin", "", 50, Role("Creator"))
     }
     val fc = Future {
@@ -98,7 +95,7 @@ object ParsersAndFutures {
     }
 
     println(Await.result(ff, timeout))
-
+*/
 
     type Closable = {
       def close(): Unit
