@@ -1,6 +1,4 @@
 import sbt.Keys._
-import sbt._
-
 object ScalaTrainBuild extends Build {
   val macroVersion = "2.0.1"
   val paradisePlugin = compilerPlugin("org.scalamacros" % "paradise" % macroVersion cross CrossVersion.full)
