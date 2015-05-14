@@ -14,6 +14,7 @@ val fibs: Stream[BigInt] = BigInt(0) #:: BigInt(1) #:: fibs.zip(
   println("Adding %d and %d".format(n._1, n._2))
   n._1 + n._2
 })
+fibs length
 
 fibs take 5 foreach println
 fibs take 6 foreach println

@@ -17,7 +17,10 @@ class MutableVSImmutableSuite extends MutableVSImmutableSpec {
     assert((list += 1) === list)
     assert((1 +=: list) === list)
 
-    (list insert(6, 6)) === list
+    list insert(6, 6)
+    assert(list === list)
+
+
   }
 
   it should "remove/update elements from collection" in {
@@ -39,6 +42,23 @@ class MutableVSImmutableSuite extends MutableVSImmutableSpec {
 
     val list2 = mutable.Buffer(1, 2, 3, 4, 5)
     assert((1 +=: list2) === list2)
+  }
+
+  it should "be able to construct match collection different way" in {
+    // Seq, List, Vector, Range
+    val ls = List(1, 2, 3)
+
+    assert(ls match {
+      case 1 :: 2 :: 3 :: Nil => true
+      case other => false
+    })
+
+    val ls1 = 1 :: 2 :: 3 :: Nil
+
+    assert(ls === ls1)
+    assert(Range(1, 5) === (1 to 5))
+    assert(((1 until 5) length) === 4)
+
   }
 
 }

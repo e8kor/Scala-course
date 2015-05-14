@@ -111,6 +111,12 @@ class TraversableSuite extends TraversableSpec {
     assert((list filterNot (_ == 1)) ++ (list filter (_ == 1)) === list)
   }
 
+  it should "have sort with method" in {
+    val list = List(9, 3, 2, 5, 8, 4, 7, 6, 1)
+
+    assert((list sortWith (_ < _)) === List(1, 2, 3, 4, 5, 6, 7, 8, 9))
+  }
+
   behavior of "Monadic transformation in collections"
 
   it should
@@ -213,5 +219,16 @@ class TraversableSuite extends TraversableSpec {
 
     assert((list toSet) === Set(1, 2, 3))
     assert((list toSeq) === Seq(1, 2, 3))
+  }
+
+  it can " be zipped with other collections" in {
+    val indexes = List(0, 1, 2, 3)
+    val words = List("zero", "one", "two", "three")
+
+    assert((words zip indexes) === (words zipWithIndex))
+
+    val map = (indexes zip words) toMap
+
+    assert(map(1) === "one")
   }
 }
