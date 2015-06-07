@@ -1,0 +1,3 @@
+name := "core"
+
+(common commonSettings)
