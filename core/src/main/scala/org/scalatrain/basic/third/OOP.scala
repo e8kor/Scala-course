@@ -1,4 +1,4 @@
-package org.scalatrain.basic.oop
+package org.scalatrain.basic.third
 
 
 class Animal {

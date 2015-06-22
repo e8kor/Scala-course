@@ -1,6 +1,6 @@
 import java.{util => ju}
 
-import org.scalatrain.basic.oop._
+import org.scalatrain.basic.third._
 
 //    val j: ju.Collection[ju.Collection[Int]] = new ju.ArrayList[ju.ArrayList[Int]])()
 val ls: Traversable[Traversable[Int]] = List(List(1))

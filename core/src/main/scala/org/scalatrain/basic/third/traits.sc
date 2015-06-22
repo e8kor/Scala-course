@@ -1,4 +1,4 @@
-import org.scalatrain.basic.oop._
+import org.scalatrain.basic.third._
 
 import scala.collection.mutable.ArrayBuffer
 

@@ -1,4 +1,4 @@
-package org.scalatrain.basic
+package org.scalatrain.basic.zero
 
 import scala.Predef._
 
