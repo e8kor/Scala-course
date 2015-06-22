@@ -1,7 +1,4 @@
-package org.scalatrain.basic
-
-import org.scalatest._
-import org.scalatrain.basic.task.SimpleMap
+package org.scalatrain.basic.homework
 
 class SimpleMapTest extends FunSuite with Matchers {
 
