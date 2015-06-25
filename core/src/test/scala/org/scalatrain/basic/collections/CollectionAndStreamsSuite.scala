@@ -23,7 +23,7 @@ class CollectionAndStreamsSuite extends CollectionAndStreamsSpec {
   }
 
   it should "support pattern matching " in {
-    val stream = Stream iterate(1, 10)
+    val stream = Stream range(1, 10)
     stream match {
       case head #:: tail => assert(head === 1)
       case _ => fail("should match on first case")
@@ -31,7 +31,7 @@ class CollectionAndStreamsSuite extends CollectionAndStreamsSpec {
   }
 
   it should "have lazy implementation for each calculation of each element" in {
-    val fibs: Stream[BigInt] = BigInt(0) #:: BigInt(1) #:: (fibs zip (
+    lazy val fibs: Stream[BigInt] = BigInt(0) #:: BigInt(1) #:: (fibs zip (
       fibs tail) map {
       case (l, r) =>
         println("Adding %d and %d" format(l, r))

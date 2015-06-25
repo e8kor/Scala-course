@@ -1,3 +1,9 @@
+package org.scalatrain.basic.four
+
+/**
+ * Created by evgeniikorniichuk on 25/06/15.
+ */
+
 class Printer {
   def print(str: String): Unit = {
     println(str)
@@ -33,6 +39,10 @@ trait Caps extends Printer {
   }
 }
 
-val printer = new Printer with Pretty with NewLine with Caps
+object StackableTraitsFeature extends App {
 
-printer.print("hello")
+  val printer = new Printer with Pretty with NewLine with Caps
+
+  printer.print("hello")
+
+}

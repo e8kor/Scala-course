@@ -1,3 +1,7 @@
+import common._
+
 name := "core"
 
-(common commonSettings)
+scalaVersion := "2.11.6"
+
+commonSettings

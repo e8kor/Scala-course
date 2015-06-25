@@ -1,3 +1,5 @@
+name := "Albert"
+
 scalaVersion := "2.11.6"
 
 scalacOptions ++= Seq(
