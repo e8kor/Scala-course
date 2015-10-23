@@ -19,4 +19,5 @@ f andThen {
 val f3 = Future {
   Int.MaxValue
 }
+
 Future(6 / 0) recoverWith { case e: ArithmeticException => f3 }
